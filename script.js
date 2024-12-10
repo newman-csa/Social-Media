@@ -16,7 +16,7 @@ async function fetchData(endpointPath) {
 }
 
 /**
- * 
+ *
  * @param {string[]} endpointPaths
  * @returns {Promise<Object[]>} JSON Data
  * @throws Throw error if any of the fetch requests fail.
@@ -46,8 +46,12 @@ const endpointPath = 'https://jsonplaceholder.typicode.com/users';
 const endpointPaths = Array(3)
   .fill(null)
   .map((_, i) => `${endpointPath}/${i + 1}`);
-  
+
 fetchMultiple(endpointPaths)
   .then((data) => data.map((user) => user.address))
-  .then((addresses) => document.querySelector('#root').textContent = JSON.stringify(addresses))
+  .then(
+    (addresses) =>
+      (document.querySelector('#main-content').lastChild.textContent =
+        JSON.stringify(addresses))
+  )
   .catch(console.error);
