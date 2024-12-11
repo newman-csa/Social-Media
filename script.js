@@ -42,16 +42,48 @@ async function fetchMultiple(endpointPaths) {
   }
 }
 
-const endpointPath = 'https://jsonplaceholder.typicode.com/users';
-const endpointPaths = Array(3)
-  .fill(null)
-  .map((_, i) => `${endpointPath}/${i + 1}`);
+/**
+ *
+ * @param {string} endpointPath
+ * @returns idk something
+ */
+async function fetchImage(endpointPath) {
+  try {
+    const response = await fetch(endpointPath);
+    if (!response.ok) throw new Error(`HTTP Status: ${response.status}`);
+    const blob = await response.blob();
+    return URL.createObjectURL(blob);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+}
 
-fetchMultiple(endpointPaths)
-  .then((data) => data.map((user) => user.address))
-  .then(
-    (addresses) =>
-      (document.querySelector('#main-content').lastChild.textContent =
-        JSON.stringify(addresses))
-  )
+let user = null;
+fetchData('https://jsonplaceholder.typicode.com/users/1')
+  .then((data) => {
+    user = data;
+    document.querySelector('#profile-name').textContent = user.name;
+  })
+  .then(console.log);
+
+fetchImage('https://unsplash.it/300/200?random&blur=3')
+  .then((url) => (document.querySelector('#background-image').src = url))
   .catch(console.error);
+
+fetchImage('https://unsplash.it/150/?random')
+  .then((url) => (document.querySelector('#profile-picture').src = url))
+  .catch(console.error);
+
+// const endpointPath = 'https://jsonplaceholder.typicode.com/users';
+// const endpointPaths = Array(3)
+//   .fill(null)
+//   .map((_, i) => `${endpointPath}/${i + 1}`);
+
+// fetchMultiple(endpointPaths)
+//   .then((data) => data.map((user) => user.address))
+//   .then(
+//     (addresses) =>
+//       (document.querySelector('#main-content').lastChild.textContent =
+//         JSON.stringify(addresses))
+//   )
+//   .catch(console.error);
