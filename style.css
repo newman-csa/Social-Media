@@ -33,6 +33,7 @@ main {
   grid-template-columns: 22rem 1fr;
   gap: 1rem;
   margin: 1rem 12rem;
+  overflow: hidden;
 }
 
 h1 {
@@ -123,7 +124,7 @@ p {
 }
 
 #sidebar {
-  height: 90vh;
+  height: 85vh;
   color: var(--white);
   background-color: var(--charcoal);
 }
