@@ -172,6 +172,6 @@ p {
 }
 
 #map {
-  height: 250px;
+  height: 200px;
   border-radius: var(--radius);
 }
