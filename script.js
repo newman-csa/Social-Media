@@ -137,12 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(console.error);
 
-  fetch('/assets/profile-desc.txt')
-    .then((response) => response.text())
-    .then((text) => {
-      document.querySelector('#profile-bio').textContent = text;
-    })
-    .catch(console.error);
+  // fetch('/assets/profile-desc.txt')
+  //   .then((response) => response.text())
+  //   .then((text) => {
+  //     document.querySelector('#profile-bio').textContent = text;
+  //   })
+  //   .catch(console.error);
 
   fetchImage('https://unsplash.it/300/200?random&blur=3')
     .then((url) => (document.querySelector('#background-image').src = url))
