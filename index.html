@@ -3,27 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Place Holder for Font Awesome Kit Key-->
+    <!-- Place Holder for Font Awesome Kit Key-->
+    <!-- Place Holder for Font Awesome Kit Key-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <title>Social Media App</title>
   </head>
   <body>
     <div id="root">
-      <header>Hello this is the header</header>
+      <header>
+        <h1><i class="fa-solid fa-shapes"></i> Latin Dissertations</h1>
+      </header>
       <main>
         <div id="sidebar">
           <!-- Use https://unsplash.it/1920/1080?random-->
           <!-- Background Image-->
-          <img src="" alt="" id="background-image" />
+          <img src="" alt="" class="box-shadow" id="background-image" />
           <!-- Profile Picture-->
           <div id="profile-info">
-            <img src="" alt="" id="profile-picture" />
+            <img src="" alt="" class="box-shadow" id="profile-picture" />
             <!-- Profile Name-->
             <p id="profile-name"></p>
+
+            <p id="profile-contact"></p>
+            <hr />
             <!-- Bio-->
-            <p>Hello this is the first div</p>
+            <p id="profile-bio"></p>
+            <!-- Address -->
+          </div>
+
+          <div style="position: relative; bottom: 35px">
+            <p id="profile-address"></p>
+            <div id="map"></div>
           </div>
         </div>
-        <div id="main-content">Hello this is the second div</div>
+        <div id="main-content"></div>
       </main>
     </div>
     <script src="script.js"></script>
